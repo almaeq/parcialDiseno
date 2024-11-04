@@ -1,0 +1,12 @@
+[run]
+omit =
+    */tests/*
+    */config/*
+    */__init__.py
+
+[report]
+exclude_lines =
+    # ignora funciones que nunca se llaman
+    def __repr__
+    raise NotImplementedError
+    if __name__ == '__main__':
