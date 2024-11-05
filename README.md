@@ -17,12 +17,12 @@ El proyecto consiste en un servicio web que recibe una secuencia de ADN y determ
 Para ejecutar el proyecto, sigue los siguientes pasos:
 
 1. Abra una terminal y navega hasta el directorio del proyecto.
-2.Ejecuta el siguiente comando para crear un entorno virtual: `python3 -m venv env`.
+2. Ejecuta el siguiente comando para crear un entorno virtual: `python3 -m venv env`.
 3. Ejecuta el siguiente comando para instalar las dependencias del proyecto: `pip install -r requirements.txt`.
 4. Ejecuta el siguiente comando para inicializar el programa: `python3 main.py`.
 5. Abrir postman e importar el archivo `mutant_api.postman_collection.json`.
-6.En Postman, selecciona el request POST para enviar una secuencia de ADN y verifica si es mutante. Ingresa una secuencia de dna en el cuerpo de la solicitud y envíala.
-7.Para obtener estadísticas, selecciona el request GET en Postman para ver el número de mutantes y no mutantes registrados en la base de datos.
+6. En Postman, selecciona el request POST para enviar una secuencia de ADN y verifica si es mutante. Ingresa una secuencia de dna en el cuerpo de la solicitud y envíala.
+7. Para obtener estadísticas, selecciona el request GET en Postman para ver el número de mutantes y no mutantes registrados en la base de datos.
 
 Postman se ejecutara en esta URL: http://127.0.0.1:5000/
 
