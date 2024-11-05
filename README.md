@@ -1,4 +1,4 @@
-# Detector e mutantes
+# Detector de mutantes
 
 ## Descripción
 
@@ -12,41 +12,33 @@ El proyecto consiste en un servicio web que recibe una secuencia de ADN y determ
 - Se debe utilizar la biblioteca Pydantic para validar los datos recibidos en la ruta POST.
 - Se debe utilizar la biblioteca pytest para escribir los tests unitarios.
 
-## Estructura del proyecto
-
-- El directorio `config` contiene los archivos de configuración para la base de datos y la conexión a la base de datos.
-- El directorio `controllers` contiene los archivos de controladores para la ruta POST.
-- El directorio `models` contiene los archivos de modelos para la base de datos.
-- El directorio `repositories` contiene los archivos de repositorios para la base de datos.
-- El directorio `services` contiene los archivos de servicios para la detección de mutantes.
-- El archivo `main.py` es el archivo principal del proyecto.
-- El archivo `test_mutant_controller.py` contiene los tests unitarios para la ruta POST.
-
 ## Ejecución del proyecto
 
 Para ejecutar el proyecto, sigue los siguientes pasos:
 
 1. Abra una terminal y navega hasta el directorio del proyecto.
 2. Ejecuta el siguiente comando para instalar las dependencias del proyecto: `pip install -r requirements.txt`.
-3. Ejecuta el siguiente comando para crear la base de datos: `python main.py db create`.
-4. Ejecuta el siguiente comando para inicializar la base de datos: `python main.py db init`.
-5. Ejecuta el siguiente comando para iniciar el servidor web: `python main.py run`.
-6. Abre una segunda terminal y navega hasta el directorio del proyecto.
-7. Ejecuta el siguiente comando para ejecutar los tests unitarios: `pytest`.
+3. Ejecuta el siguiente comando para inicializar el programa: `python3 main.py`.
+4. Abrir postman e importar el archivo `mutant_api.postman_collection.json`.
+5.En Postman, selecciona el request POST para enviar una secuencia de ADN y verifica si es mutante. Ingresa una secuencia de dna en el cuerpo de la solicitud y envíala.
+6.Para obtener estadísticas, selecciona el request GET en Postman para ver el número de mutantes y no mutantes registrados en la base de datos.
 
-## Ejemplo de uso
+Postman se ejecutara en esta URL: http://127.0.0.1:5000/
 
-Para ejecutar el servicio web, sigue los siguientes pasos:
+Como está dockerizado y hosteado en Render también se puede ejecutar en la siguiente URL:https://parcialdiseno.onrender.com
 
-1. Abre una terminal y navega hasta el directorio del proyecto.
-2. Ejecuta el siguiente comando para iniciar el servidor web: `python main.py run`.
-3. Abre una segunda terminal y navega hasta el directorio del proyecto.
-4. Ejecuta el siguiente comando para enviar una solicitud POST a la ruta `/mutant/` con una secuencia de ADN: `curl -X POST http://localhost:8000/mutant/ -H "Content-Type: application/json" -d '{"dna": ["ATCG", "ATCG", "ATCG", "ATCG"]}'`.
-5. Espera a que se complete la solicitud y vea el resultado en la terminal.
+### Para hacer el POST:
+ https://parcialdiseno.onrender.com/mutant
+
+ ### Para hacer el GET:
+ https://parcialdiseno.onrender.com/stats
+
+## Para ejecutar los tests:
+1. Abre una segunda terminal y navega hasta el directorio del proyecto.
+2. Ejecuta el siguiente comando para ejecutar los tests: `PYTHONPATH=. pytest --cov=. --cov-report=term-missing `.
 
 ## Ejemplo de solicitud POST
 
-```json
 {
   "dna": [
     "ATCG",
