@@ -1,5 +1,3 @@
-# models/dna_model.py
-
 from sqlalchemy import Column, Integer, String, Boolean
 from config.database import Base
 

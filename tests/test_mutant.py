@@ -1,7 +1,7 @@
 import pytest
 from fastapi.testclient import TestClient
 from main import app
-from config.database import SessionLocal, Base, engine
+from config.database import Database
 from models.dna_model import DnaRecord
 from sqlalchemy.orm import Session
 
@@ -10,13 +10,15 @@ client = TestClient(app)
 # Configura la base de datos para pruebas
 @pytest.fixture(scope="module")
 def setup_database():
-    Base.metadata.create_all(bind=engine)  # Crear las tablas
+    database = Database()
+    database.create_tables()  # Crear las tablas
     yield
-    Base.metadata.drop_all(bind=engine)    # Limpiar después de las pruebas
+    database.drop_tables()    # Limpiar después de las pruebas
 
 @pytest.fixture
 def db_session():
-    db = SessionLocal()
+    database = Database()
+    db = database.SessionLocal()
     yield db
     db.query(DnaRecord).delete()  # Limpiar registros después de cada prueba
     db.commit()

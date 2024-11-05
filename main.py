@@ -1,11 +1,8 @@
 from fastapi import FastAPI
-from controllers import mutant_controller
-from config.database import Base, engine
+from controllers.mutant_controller import router as mutant_router
 
-# Crear las tablas en la base de datos
-Base.metadata.create_all(bind=engine)
-
+# Instancia de FastAPI
 app = FastAPI()
 
-# Registrar los routers
-app.include_router(mutant_controller.router)
+# Registrar las rutas del controlador
+app.include_router(mutant_router)
